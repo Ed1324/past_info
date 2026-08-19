@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define int long long
+#define ld long double
+#define endl "\n"
+
+void solve(){
+    int n, m, a; cin >> n>> m >> a;
+    cout << ((m+a-1)/a)*((n+a-1)/a) << endl;
+}
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}
+

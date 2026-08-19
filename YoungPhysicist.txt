@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define int long long
+#define endl "\n"
+
+bool solve(){
+    int n; cin >> n;
+    int x=0, y=0, z=0;
+    for(int i = 0; i < n; i++){
+        int addx, addy, addz; cin >> addx >> addy >> addz;
+        x+=addx, y+=addy, z+=addz;
+    }
+    if(x==0&&y==0&&z==0) return true;
+    return false;
+}
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    if(solve()) cout << "YES" << endl;
+    else cout << "NO" << endl;
+    return 0;
+}
+

@@ -1,0 +1,9 @@
+    cout << "How many numbers? ";
+    cin >> numbers;
+    vector<int>list_of_numbers(numbers);
+    for(int i {0}; i < numbers;){
+        cin >> list_of_numbers[i];
+        i++;
+    }
+    
+    cout << "\nP - Print numbers\nA - add a number\nM - Display mean of numbers\nS - Display smallest number\nL - Display largest number\nQ - Quit\n-------------\n";

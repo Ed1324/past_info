@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define int long long
+#define ld long double
+#define endl "\n"
+
+void solve(){
+    string s; cin >> s;
+    string vowels = "aeiouyAEIOUY";
+    for(char c : s){
+        if(vowels.find(c)==string::npos){
+            cout << "." << (char)tolower(c);
+        }
+    }
+    cout << endl;
+}
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}
+

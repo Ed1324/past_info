@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define FAST ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
+using namespace std;
+ 
+int main(){
+    FAST;
+    int t;
+    cin >> t;
+    while(t--){
+        int n, a, b, c, d;
+        cin >> n >> a >> b >> c >> d;
+        
+        int L = n * (a-b), R = n * (a+b);
+        if(R < c-d || L > d+c){
+            cout << "no" << endl;
+        } else{
+            cout << "YES" << endl;
+        }
+    }
+}

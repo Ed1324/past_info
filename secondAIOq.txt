@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define ll long long
+ll n, l;
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cin >> n >> l;
+    vector<ll>loc(n, -1);
+    ll loca = 0;
+    ll l = INT_MIN;
+    ll r = INT_MAX;
+    
+    for(int i = 0; i < n; i++){
+      ll a, b;
+      cin >> a >> b;
+      l = max(l, a);
+      r = min(r, b);
+    }
+    if(r < l){
+      cout << 0;
+      return 0;
+    }
+    cout << r - l +1;
+    return 0;
+}
+
