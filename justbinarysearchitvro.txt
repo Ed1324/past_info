@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define ll long long
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    ll n, b;
+    cin >> b >> n;
+    vector<ll>a(b);
+    for(int i = 0; i < b; i++) cin >> a[i];
+    
+    ll t, lo = 1, hi = 1e9, mid;
+    ll res = 0;
+    while (lo <= hi) {
+      mid = (lo + hi) / 2;
+      res = 0;
+      for (int i = 0; i < b; i++) {
+          res += min(mid, a[i]);
+      }
+      if (res < n) lo = mid + 1;
+      else hi = mid - 1, t = mid;
+    }
+    ll used = 0;
+    for(int i = 0; i < b; i++){
+      used+=min(a[i], t-1);
+    }
+    ll ans = 0;
+    for(int i = 0; i < b; i++){
+      if(used == n) break;
+      if(a[i] >= t) used++, ans=i+1;
+    }
+    cout << ans;
+    return 0;
+}
+

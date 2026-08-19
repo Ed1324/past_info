@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    int increment {1};
+    int a, b, c;
+    
+    cin >> a >> b >> c;
+    const int original = a;
+    for(int i {0}; i < c; i++){
+        b-=a;
+        increment++;
+        a = original*increment;
+    }
+    if(b < 0){
+        cout << abs(b);
+    } else {
+        cout << 0;
+    }
+    
+}

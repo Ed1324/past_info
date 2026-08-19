@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define ld long double
+using namespace std;
+#define MAXN 200005
+#define endl "\n"
+
+int recursion(vector<int>& v, int ind){
+    if(ind == v.size()) return 0; // base case
+    return (v[ind]) + recursion(v, ind + 1);
+}
+
+int main()
+{ 
+   ios::sync_with_stdio(false);
+   cin.tie(nullptr);
+   vector<int>v = {1, 2, 3};
+   cout << recursion(v, 0) << endl;
+   return 0;
+}

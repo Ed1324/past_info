@@ -1,0 +1,62 @@
+impressively long code for CONCATNATE atcoder F: 
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define endl '\n'
+const int MAXN=2e5+5;
+
+void solve() {
+    int n,k;cin>>n>>k;
+    priority_queue<pair<pair<int,int>,string>>pq;
+    for(int i=0;i<n;i++){
+        string c;cin>>c;
+        int x=stoll(c);
+        pq.push({{c.size(),x},c});
+    }
+    vector<string>ans,ans1;
+    auto pq1=pq;
+    for(int i=0;i<k;i++){
+        ans.push_back(pq.top().second);
+        pq.pop();
+    }
+    sort(ans.begin(),ans.end(),[](string a,string b){return a+b>b+a;});
+    string res,res1;
+    for(auto e:ans)res+=e;
+    for(int i=0;i<res.size();i++){
+        if(res[i]!='0'){
+            res=res.substr(i);
+            break;
+        }
+    }
+    string best;
+    int bVal=-1;
+    for(int i=0;i<k-1;i++)ans1.push_back(pq1.top().second),pq1.pop();
+    while(!pq1.empty()){
+        int v=pq1.top().first.second;
+        string s=pq1.top().second;
+        if(v>bVal)bVal=v,best=s;
+        pq1.pop();
+    }
+    ans1.push_back(best);
+    sort(ans1.begin(),ans1.end(),[](string a,string b){return a+b>b+a;});
+    for(auto e:ans1)res1+=e;
+    for(int i=0;i<res1.size();i++){
+        if(res1[i]!='0'){
+            res1=res1.substr(i);
+            break;
+        }
+    }
+    if(res[0]=='0')res="0";
+    if(res1[0]=='0')res1="0";
+    if(res.size()>res1.size())cout<<res<<endl;
+    else if(res1.size()>res.size())cout<<res1<<endl;
+    else cout<<max(res,res1)<<endl;
+}
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    solve();
+    return 0;
+}

@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define ll long long
+#define ld long double
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    ll n;
+    cin >> n;
+    unordered_map<ll, ll>mp;
+    for(int i = 0; i < n; i++){
+        ll a,b;
+        cin >> a >> b;
+        mp[a]++;
+        mp[b]++;
+    }
+    ll mxval = 0;
+    for(auto f : mp){
+        if(mxval < f.second){
+            mxval = f.second;
+        }
+    }
+    vector<ll>ans;
+    for(auto f : mp){
+        if(f.second == mxval){
+            ans.push_back(f.first);
+        }
+    }
+    sort(ans.begin(), ans.end());
+    for(auto z : ans){
+        cout << z << "\n";
+    }
+}

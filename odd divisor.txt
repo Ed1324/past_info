@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using ld = long double;
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    int tc = 1;
+    cin >> tc;
+    while(tc--){
+        ll n;
+        cin >> n;
+        int increment {2};
+        bool found {false};
+        
+        while(n >= 2){
+            if(increment % 2 == 1){
+                found = true;
+                break;
+            }
+            if(n % increment == 0){
+                n/=increment;
+            } else {
+                increment++;
+            }
+        }
+        if(found == true){
+            cout << "YES" << "\n";
+        } else {
+            cout << "NO" << "\n";
+        }
+    }
+    return 0;
+}

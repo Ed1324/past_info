@@ -1,0 +1,36 @@
+BFS(Graph, start):
+
+    create empty queue Q
+    create empty set Visited
+
+    enqueue start into Q
+    add start to Visited
+
+    while Q is not empty:
+
+        current = dequeue Q
+        process(current)
+
+        for each neighbour in Graph[current]:
+
+            if neighbour is not in Visited:
+                add neighbour to Visited
+                enqueue neighbour into Q
+
+DFS(Graph, start):
+    create empty minimum_priorityqueue Q
+    create empty set Visited
+
+    enqueue start into Q
+    add start to Visited
+
+    while Q is not empty:
+
+        current = dequeue Q
+        process(current)
+
+        for each neighbour in Graph[current]:
+
+            if neighbour is not in Visited:
+                add neighbour to Visited
+                enqueue neighbour into Q

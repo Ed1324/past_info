@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 10000005
+#define int long long
+#define ld long double
+#define endl "\n"
+ 
+
+void solve(){
+    int n;cin>>n;
+    stack<pair<int,int>>s;
+    s.push({0,0});
+    for(int i=1;i<=n;i++){
+        int a;cin>>a;
+        int to=s.top().first;
+        while(to>=a) s.pop(), to=s.top().first;
+        cout<<s.top().second<<" ";
+        s.push({a,i});
+    }
+}
+ 
+ 
+ 
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define FAST ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
+using namespace std;
+ 
+int main(){
+    FAST;
+    int t;
+    cin >> t;
+    while(t--){
+        ll n, s;
+        cin >> n >> s;
+        ll rem = s % 4;
+        if(n%2==0){
+            if(rem==0) cout << n << "\n";
+            if(rem==1) cout << n-s << "\n";
+            if(rem==2) cout << n+1 << "\n";
+            if(rem==3) cout << n+s+1 << "\n";
+        } else {
+            if(rem==0) cout << n << "\n";
+            if(rem==1) cout << n+s << "\n";
+            if(rem==2) cout << n-1 << "\n";
+            if(rem==3) cout << n-s-1 << "\n";
+        }
+    }
+}

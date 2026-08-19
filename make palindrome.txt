@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define int long long
+#define ld long double
+#define endl "\n"
+
+void solve(){
+    map<char, int>a;
+    string s; cin >> s;
+    deque<char>ans;
+    int amt = 0;
+    char odd;
+    for(int i = 0; i < s.length(); i++) a[s[i]]++;
+    for(auto [k, v] : a){
+        if(v%2 == 1 && amt == 1) cout <<"NO SOLUTION" << endl, exit(0);
+        if(v%2 == 1) amt = 1, odd = k;
+    }
+    if(amt ==1) ans.push_front(odd);
+    for(auto [k, v] : a){
+        int te = v/2;
+        for(int i = 0; i < te; i++){
+            ans.push_front(k);
+            ans.push_back(k);
+        }
+    }
+    for(auto ch : ans) cout << ch;
+    cout << endl;
+}
+
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}
+

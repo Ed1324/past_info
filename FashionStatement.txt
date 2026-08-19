@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define ll long long
+#define ld long double
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    ll n;
+    cin >> n;
+    ll ans = 0;
+    while(n-100 >= 0){
+        n-=100;
+        ans++;
+    }
+    while(n-20 >= 0){
+        n-=20;
+        ans++;
+    }
+    while(n-5 >= 0){
+        n-=5;
+        ans++;
+    }
+    while(n-1 >= 0){
+        n-=1;
+        ans++;
+    }
+    cout << ans;
+}

@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+string s;
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    ll n;
+    cin >> n >> s;
+    ll skill = 1;
+    ll res = 0;
+    for(int i = 0; i < n; i++) {
+        if(s[i] == 'C'){
+            skill++;
+        } else {
+            res += skill;
+        }
+    }
+    for(int i = n; i >= 0; i--) {
+        if(s[i] == 'C'){
+            res = max(res + skill - ((n-i) * 1), res);
+            skill--;
+        }
+    }
+    cout << res;
+}

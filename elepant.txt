@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using ld = long double;
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    
+    int tc = 1;
+    
+    while(tc--){
+        int n;
+        int counter {0};
+        cin >> n;
+        while(n != 0){
+            if(n > 5){
+                n-=5;
+                counter++;
+            } else{
+                n-=n;
+                counter++;
+            }
+        }
+        cout << counter << endl;
+    }
+    return 0;
+}

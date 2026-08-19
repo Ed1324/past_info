@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 10000005
+#define int long long
+#define ld long double
+#define endl "\n"
+ 
+vector<pair<int, int>>ar;
+void solve(){
+    int n; cin >> n;
+    for(int i=0;i<n;i++){
+        int a,b;cin>>a>>b;
+        ar.push_back({a,b});
+    }
+    sort(ar.begin(), ar.end(),[](const pair<int,int>& a, const pair<int,int>& b){return a.second < b.second;});
+    int ans=1,cur=ar[1].first,prev=ar[0].second;
+    for(int i=1;i<n;i++){
+        cur=ar[i].first;
+        if(cur>=prev)ans++,prev=ar[i].second;
+    }
+    cout<<ans<<endl;
+}
+ 
+ 
+ 
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}

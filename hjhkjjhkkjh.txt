@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 10000005
+#define int long long
+#define ld long double
+#define endl "\n"
+ 
+
+void solve(){
+    int n,ans=1;cin>>n;
+    vector<int>mp(n+1);
+    for(int i=1;i<=n;i++){
+        int a;cin>>a;mp[a]=i;
+    }
+    for(int i=1;i<n;i++){
+        if(mp[i]>mp[i+1]) ans++;
+    }
+    cout<<ans<<endl;
+}
+ 
+ 
+ 
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}

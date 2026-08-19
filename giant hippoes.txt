@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 1005
+#define int long long
+#define ld long double
+#define endl "\n"
+
+void solve(){
+    int n, h, f, ans = 0;
+    cin >> n >> h >> f;
+    int a[MAXN] = {0};
+    int location[MAXN] = {0};
+    for(int i = 1; i <= h; i++){
+        cin >> a[i];
+    }
+    a[h+1]=n+1;
+    int need[MAXN] = {0};
+    int dif[MAXN] = {0};
+    int loc[MAXN] = {0};
+    for(int i = 0; i <= h; i++){
+        if(i == 0 || i == h) need[i] = 1;
+        else need[i] = 2;
+    }
+    for(int i = 0; i <= h; i++){
+        dif[i] = a[i+1] - a[i] - 1;
+    }
+    while(f > 0){
+        int maxval = -1, p = -1;
+        for(int i = 0; i <= h; i++){
+            if(dif[i] > maxval && loc[i] < need[i] && f >= (need[i] - loc[i])) maxval = dif[i], p = i;
+        }
+        if(p == -1) break;
+        int use = need[p] - loc[p];
+        loc[p] = need[p];
+        f-=use;
+
+    }
+    for(int i = 0; i <= h; i++){
+        if(loc[i] == need[i]) ans += dif[i];
+    }
+    cout << ans << endl;
+}
+
+
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout << endl;
+    solve();
+    return 0;
+}
+

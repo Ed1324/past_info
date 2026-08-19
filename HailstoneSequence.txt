@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define int long long
+#define endl "\n"
+ 
+void solve(){
+    int n = 67;
+    while(n!=0){
+        cin >> n;
+        int t=0;
+        while(n>1){
+            if(n%2==1){
+                n=3*n+1;
+            }
+            else{
+                n/=2;
+            }
+            t+=1;
+        }
+        if(n!=0) cout << t << endl;
+    }
+}
+ 
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}

@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define ld long double
+using namespace std;
+#define MAXN 200005
+#define endl "\n"
+
+void recursion(int n){
+    cout << n << endl;
+    if(n>1) recursion(n-1);
+}
+
+int main()
+{ 
+   ios::sync_with_stdio(false);
+   cin.tie(nullptr);
+   recursion(2);
+   return 0;
+}

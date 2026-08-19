@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 200005
+#define int long long
+#define endl "\n"
+
+void solve(){
+    int t, p;
+    cin >> t >> p;
+    map<int, int>a;
+    int curr = 1, per = 1;
+    for(int i = 1; i<=t; i++){
+        a[i] = 0;
+    }
+    while(p-curr > 0){
+        p-=curr;
+        a[per]+=curr;
+        if(per == t) per=1;
+        else per++;
+        curr++;
+    }
+    a[per]+=p;
+    int maxval = 0, anskey = 1;
+    for(auto const& [key, value] : a){
+        if(value > maxval) maxval = value, anskey = key;
+    }
+    cout << anskey << " " << maxval << endl;
+}
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout << endl;
+    solve();
+    return 0;
+}
+

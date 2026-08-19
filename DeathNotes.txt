@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define FAST ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
+using namespace std;
+ 
+int main(){
+    FAST;
+    int t, words;
+    int ans {0}, total {0};
+    cin >> t >> words;
+    while(t--){
+        int a;
+        cin >> a;
+        total+=a;
+        if(total >= words){
+            int l = total/words;
+            ans+=l;
+            total=total-words*l;
+        }
+        cout << ans << " ";
+        ans = 0;
+    }
+}

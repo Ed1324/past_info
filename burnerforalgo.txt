@@ -1,0 +1,5 @@
+reverse: string -> string
+find: string x string -> integer
+lookup: string x integer -> string
+join: string x string -> string
+compare: string x string -> Boolean 

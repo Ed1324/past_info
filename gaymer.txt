@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin >> t;
+    while(t--)
+    {   
+        int hp, vd, lightning;
+        cin >> hp >> vd >> lightning;
+        while(vd--){
+            if(hp <= 20) break;
+            hp = hp/2 + 10;
+        }
+        while(lightning--){
+            if(hp <= 0) break;
+            hp-=10;
+        }
+        if(hp <= 0){
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+}

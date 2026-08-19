@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int cases, n{0};
+    cin >> cases;
+
+    for(int j {0}; j < cases; j++){
+        cin >> n;
+        vector<int>nums(n*n);
+        vector<int>permutation{2};
+        vector<int>sorted_list{};
+        for(int i {0}; i < n*n; i++){
+            cin >> nums[i];
+        }
+        
+        for(int i {1}; i < n+1; i++){
+            permutation.push_back(nums[i - 1]);
+        }
+        
+        for(int i {0}; i < n-1; i++){
+            permutation.push_back(nums[nums.size()-(n-1)+i]);
+        }
+        for(auto a : permutation){
+            sorted_list.push_back(a);
+        }
+        sort(sorted_list.begin(), sorted_list.end());
+        for(int i {1}; i < 2 * n; i++){
+            if(sorted_list[i-1] != i){
+                permutation[0] = i;
+            }
+            if(sorted_list[sorted_list.size() -1] != sorted_list.size()){
+                permutation[0] = sorted_list.size();
+            }
+        }
+        for(auto a : permutation){
+            cout << a << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
